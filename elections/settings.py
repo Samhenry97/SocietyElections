@@ -74,15 +74,16 @@ WSGI_APPLICATION = 'elections.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+# Uses environment variables to get the user's unique variables
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'election',
-        'USER': 'postgres',
-        'PASSWORD': 'noneofyourbusiness',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': str(os.environ.get('DATABASE_NAME', '')),
+        'USER': os.environ.get('DATABASE_USER', ''),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', ''),
+        'HOST': os.environ.get('DATABASE_HOST', ''),
+        'PORT': os.environ.get('DATABASE_PORT', ''),
     }
 }
 
