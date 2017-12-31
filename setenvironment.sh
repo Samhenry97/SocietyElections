@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#these need to go in the ~/.bashrc file, with your own settings attached
 export DATABASE_NAME='election'
 export DATABASE_USER='postgres'
 export DATABASE_PASSWORD='noneofyourbusiness'
