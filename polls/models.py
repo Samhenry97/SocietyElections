@@ -26,8 +26,8 @@ class PositionQuestion(models.Model):
 #contains the people up for election for each question, is an association table
 class CandidateChoice(models.Model):
 	question = models.ForeignKey(PositionQuestion, on_delete=models.CASCADE, related_name='choices')
-	candidate_id = models.ForeignKey(Person, on_delete=models.CASCADE)
+	candidate = models.ForeignKey(Person, on_delete=models.CASCADE)
 	votes = models.IntegerField(default=0)
 
 	def __str__(self):
-		return 'Candidate with id ' + candidate_id + ' has ' + self.votes + ' votes.'
+		return 'Candidate with id ' + candidate + ' has ' + self.votes + ' votes.'

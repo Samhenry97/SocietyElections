@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html> 
+	{% load static %}
+	<head>
+	<!--bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--project css-->
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/css/ballot.css' %}">
+	</head>
+	<body>
+		{% if candidate_poll_list %}
+		    <ul>
+		    {% for question in candidate_poll_list %}
+		       <p>{{ question.question_text }}</p>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>No positions are up for election.</p>
+		{% endif %}
+
+	</body>
+</html>

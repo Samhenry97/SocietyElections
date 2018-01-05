@@ -2,8 +2,6 @@
 #This file contains the logic to manipulate the pages that the user sees 
 #-----------------------------------------------------------------------
 
-
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -40,3 +38,10 @@ def vote(request, question_id):
 		selected_choice.votes += 1
 		selected_choice.save()
 		return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+def ballot(request):
+	candidate_poll_list = PositionQuestion.objects.order_by('-pub_date')
+	print(candidate_poll_list)
+	context = {'candidate_poll_list': candidate_poll_list}
+	return render(request, 'polls/ballot.html', context)
+
+
