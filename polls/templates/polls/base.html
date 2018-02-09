@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/foundation.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+		<link rel="icon" href="{% static 'polls/img/favicon.ico' %}" type="image/x-icon" />
+		<title> Chi Alpha Pi Polls </title>
+	</head>
+	<body>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
