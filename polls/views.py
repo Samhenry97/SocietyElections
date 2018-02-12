@@ -44,4 +44,5 @@ def ballot(request):
 	context = {'candidate_poll_list': candidate_poll_list}
 	return render(request, 'polls/ballot.html', context)
 
-
+def signup(request):
+	return render(request, 'polls/signup.html')
