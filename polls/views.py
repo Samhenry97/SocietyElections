@@ -7,6 +7,9 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from .models import *
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 #This method contains the logic to manipulate the page containing all the candidates
 def index(request):
@@ -45,4 +48,15 @@ def ballot(request):
 	return render(request, 'polls/ballot.html', context)
 
 def signup(request):
-	return render(request, 'polls/signup.html')
+	if request.method == 'POST':
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			raw_password = form.cleaned_data.get('password1')
+			user = authenticate(username=username, password=raw_password)
+			login(request, user)
+			return redirect('home')
+	else:
+		form = UserCreationForm()
+	return render(request, 'polls/signup.html', {'form': form})
