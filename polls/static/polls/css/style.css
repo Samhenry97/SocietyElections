@@ -9,4 +9,21 @@ header {
 
 #titleText {
 	color: #F4F4F4;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.centerit {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.buttons {
+	background-color: #253849; 
+    border: none;
+    color: #F4F4F4;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
 }
