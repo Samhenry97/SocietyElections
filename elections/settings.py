@@ -32,14 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'signup.apps.SignupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls',
+    'signup',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 STATIC_URL = '/assets/'
-
 
 # Console email backend to debug code
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

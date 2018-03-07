@@ -12,10 +12,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 #This method contains the logic to manipulate the page containing all the candidates
-def index(request):
+def polls(request):
 	latest_question_list = PositionQuestion.objects.order_by('-pub_date')[:5]
 	context = {'latest_question_list': latest_question_list}
-	return render(request, 'polls/index.html', context)
+	return render(request, 'polls/polls.html', context)
 
 #This returns the details about a certain position, with the url to access this page in urls.py
 def detail(request, question_id):

@@ -1,0 +1,4 @@
+body {
+	/* This should be changed to not be relative */
+	background-image: url('../img/groupphoto.jpg');
+}

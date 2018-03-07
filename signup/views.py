@@ -16,6 +16,9 @@ from .tokens import account_activation_token
 from django.template.loader import render_to_string
 from .urls import *
 
+def index(request):
+	return render(request, 'signup/index.html')
+	
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -42,3 +45,4 @@ def activate(request):
 
 def confirmed(request):
 	return render(request, 'signup/confirmed.html')
+
