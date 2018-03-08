@@ -3,11 +3,20 @@
 	{% load static %}
 	<head>
 		<title>Chi Alpha Pi Polls</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'signup/css/home.css' %}">
+		
 		<link rel="icon" href="{% static 'polls/img/favicon.ico' %}" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/foundation.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/app.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'signup/css/home.css' %}">
+
 	</head>
 	<body>
-
-		
+		<div class="centerTitle">
+			<h1 id="titleText"> XAΠ Polling App </h1>		
+		</div>
+		<div class="buttons-div">
+			<button type="submit" class="buttons button">Sign up</button>
+			<button type="submit" class="buttons button">Login</button>
+		</div>
 	</body>
 </html>
