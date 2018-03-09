@@ -13,7 +13,14 @@ from django.shortcuts import render, redirect
 
 #This method contains the logic to manipulate the page containing all the candidates
 def polls(request):
+	#grab all of the positions up for election (TODO: change this to all recent polls)
 	latest_question_list = PositionQuestion.objects.order_by('-pub_date')[:5]
+
+	#create an object that holds each of the candidates for each of the positions
+
+	#store the objects in the positionlist, and the positionlist in a larger list that then
+	#goes in the dictionary below 
+
 	context = {'latest_question_list': latest_question_list}
 	return render(request, 'polls/polls.html', context)
 
@@ -41,22 +48,10 @@ def vote(request, question_id):
 		selected_choice.votes += 1
 		selected_choice.save()
 		return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
 def ballot(request):
 	candidate_poll_list = PositionQuestion.objects.order_by('-pub_date')
 	print(candidate_poll_list)
 	context = {'candidate_poll_list': candidate_poll_list}
 	return render(request, 'polls/ballot.html', context)
-
-def signup(request):
-	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data.get('username')
-			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(username=username, password=raw_password)
-			login(request, user)
-			return redirect('home')
-	else:
-		form = UserCreationForm()
-	return render(request, 'polls/signup.html', {'form': form})

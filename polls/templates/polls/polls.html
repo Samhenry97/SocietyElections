@@ -3,8 +3,19 @@
 {% block content %}
 
 {% if latest_question_list %}
+	<!-- This should be a div, not a ul-->
 	<ul>
+	<!-- each position poll should be a div with the layout as "inline-block"-->
 	{% for question in latest_question_list %}
+
+		<!-- Add in another for loop that iterates over each candidate and inserts this html-->
+		<div style="height:300px;width:150px;">
+		<!--Each of these should be getting their photos from the static folder-->
+		<img src="me.png" alt="" height="200" width="150">
+
+		<!--Get the text from the person and place it in where "Joe Schmoe" is-->
+		<p style="text-align:center;color:#253849;font-size:24px;margin-top:50px;">Joseph Schmoe the third</p> 
+		</div>
 		<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
 	{% endfor %}
 	</ul>
