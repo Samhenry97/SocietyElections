@@ -1,4 +1,43 @@
 body {
 	/* This should be changed to not be relative */
 	background-image: url('../img/groupphoto.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.centerTitle {
+	width: 100%;
+	position: fixed;
+}
+
+#titleText {
+	margin-top: 100px;
+	left: 50%;
+	color: white;
+	text-align: center;
+	font-family: Helvetica;
+}
+
+.buttons-div {
+	margin-top: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+	 .buttons-div {
+		margin-top: 200px;
+	}
+}
+
+
+
+.buttons {
+	left: 50%;
+	top: 25%;
+	background-color: #253849; 
+    border: none;
+    color: #F4F4F4;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
 }

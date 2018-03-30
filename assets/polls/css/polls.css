@@ -1,0 +1,26 @@
+.questionDiv {
+	margin: 50px;
+	display: inline-block;
+	width: 100%;
+}
+
+.nomineeDiv {
+	padding: 20px;
+	text-align: center;
+	margin: 0 auto;
+	height:400px; 
+	width:200px;
+}
+
+#id {
+	color: red;
+	text-align: center;
+	width: 100%;
+}
+
+.nomineeText {
+	text-align:center;
+	color:#253849;
+	font-size:18px;
+	margin-top:10px;
+}

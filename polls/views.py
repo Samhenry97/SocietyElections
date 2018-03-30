@@ -7,15 +7,15 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from .models import *
+from .nomineeObject import *
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 #This method contains the logic to manipulate the page containing all the candidates
 def polls(request):
-	#grab all of the positions up for election (TODO: change this to all recent polls)
-	latest_question_list = PositionQuestion.objects.order_by('-pub_date')[:5]
-
+	#grab all of the positions up for election 
+	latest_question_list = PositionQuestion.objects.order_by('-id')
 	#create an object that holds each of the candidates for each of the positions
 
 	#store the objects in the positionlist, and the positionlist in a larger list that then
