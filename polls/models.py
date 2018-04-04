@@ -18,6 +18,7 @@ class Person(models.Model):
 #contains the information about the poll for a particular position
 class PositionQuestion(models.Model):
 	question_text = models.CharField(max_length=200)
+	position = models.CharField(max_length=50, default="none")
 	pub_date = models.DateTimeField('date published')
 
 	def __str__(self):

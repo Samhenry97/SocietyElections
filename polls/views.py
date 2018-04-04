@@ -15,8 +15,13 @@ from django.shortcuts import render, redirect
 #This method contains the logic to manipulate the page containing all the candidates
 def polls(request):
 	#grab all of the positions up for election 
-	latest_question_list = PositionQuestion.objects.order_by('-id')
+	latest_question_list = PositionQuestion.objects.order_by('id')
 	#create an object that holds each of the candidates for each of the positions
+	for question in latest_question_list:
+		nomineePosition = question.position
+		for person in CandidateChoice.objects.order_by('id'):
+			print("here")
+				
 
 	#store the objects in the positionlist, and the positionlist in a larger list that then
 	#goes in the dictionary below 
