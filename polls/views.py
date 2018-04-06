@@ -17,16 +17,38 @@ def polls(request):
 	#grab all of the positions up for election 
 	latest_question_list = PositionQuestion.objects.order_by('id')
 	#create an object that holds each of the candidates for each of the positions
+
+	#dictionary containing all of the people, classified by question
+	peopleDict = {} 
+
 	for question in latest_question_list:
-		nomineePosition = question.position
+
+		#position we need to get the people for
+		nomineePosition = question.id
+
+		#list of all the people local to this question
+		personList = []
+
+		# TODO: there has to be a quicker way of doing this, maybe a get method
+		# but this loops over all of the candidates
 		for person in CandidateChoice.objects.order_by('id'):
-			print("here")
+
+			#if the person's id equals the position id, grab them
+			if person.question_id == nomineePosition:
+
+				#get the data corresponding to that person's id
+				personData = Person.objects.get(pk=person.candidate_id)
+
+				#create a person object
+				personToAdd = Nominee(personData.first_name + ' ' + personData.last_name, personData.rank, personData.major, 'nowhere')
 				
+				#print(personToAdd)
+				personList.append(personToAdd)
 
-	#store the objects in the positionlist, and the positionlist in a larger list that then
-	#goes in the dictionary below 
+		# add the people in this particular question to the group of all the people
+		peopleDict[question.id] = personList
 
-	context = {'latest_question_list': latest_question_list}
+	context = {'latest_question_list': latest_question_list, 'peopleDict': peopleDict}
 	return render(request, 'polls/polls.html', context)
 
 #This returns the details about a certain position, with the url to access this page in urls.py

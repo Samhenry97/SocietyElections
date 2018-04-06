@@ -29,6 +29,9 @@ class Nominee:
 	def getPictureLocation(self):
 		return self.pictureLocation
 
+	#to string method
+	def __str__(self):
+		return "Name: " + self.name + " Rank: " + self.rank + " Major: " + self.major
 
 
 

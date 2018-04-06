@@ -11,15 +11,16 @@
 
 		<h2 class="pollTitle">{{ question.question_text }}</h2>
 		<div class="questionDiv">
+				{% for person in peopleDict[question.id] %}
 				<!-- Add in another for loop that iterates over each candidate and inserts this html-->
 				<div class="nomineeDiv">
 					<!--Each of these should be getting their photos from the static folder-->
 					<img src="{% static 'polls/img/carter.jpg' %}" alt="" height="200" width="150">
 
 					<!--Get the text from the person and place it in where "Joe Schmoe" is-->
-					<p class="nomineeText">Joey</p> 
+					<p class="nomineeText">{{person.name}}</p> 
 				</div>
-				
+				{% endfor %}
 		</div>
 	{% endfor %}
 	
