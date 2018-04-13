@@ -1,6 +1,8 @@
 {% extends 'polls/base.html' %}
 {% block stylesheets %}
 {% load static %}
+{% load templateTags %}
+
 		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/polls.css' %}">
 {% endblock %}
 {% block content %}
@@ -11,7 +13,9 @@
 
 		<h2 class="pollTitle">{{ question.question_text }}</h2>
 		<div class="questionDiv">
-				{% for person in peopleDict[question.id] %}
+
+				<!--info on indexing into list: https://stackoverflow.com/questions/41824854/how-to-parse-list-of-lists-in-django-template -->
+				{% for person in peopleDict|at_index:0 %}
 				<!-- Add in another for loop that iterates over each candidate and inserts this html-->
 				<div class="nomineeDiv">
 					<!--Each of these should be getting their photos from the static folder-->
@@ -30,3 +34,4 @@
 
 
 {% endblock %}
+
