@@ -40,8 +40,8 @@ def polls(request):
 				personData = Person.objects.get(pk=person.candidate_id)
 
 				#create a person object
-				personToAdd = Nominee(personData.first_name + ' ' + personData.last_name, personData.rank, personData.major, 'nowhere')
-				
+				personToAdd = Nominee(personData.first_name + ' ' + personData.last_name, personData.rank, personData.major, (personData.first_name + personData.last_name).lower())
+				print(personToAdd.pictureLocation)
 				#print(personToAdd)
 				personList.append(personToAdd)
 

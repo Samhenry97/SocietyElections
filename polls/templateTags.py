@@ -3,6 +3,12 @@ from django import template
 
 register = template.Library()
 
-@register.tag('at_index')
+# If you get an invalid filter message, these need to be 
+# registered as filters, not tags
+@register.filter('at_index')
 def at_index(data, index):
     return data[index]
+
+@register.filter('getPictureLocation')
+def getPictureLocation(name):
+ 	return 'polls/img/' + name + '.jpg'
