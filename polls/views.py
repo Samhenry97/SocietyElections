@@ -41,8 +41,6 @@ def polls(request):
 
 				#create a person object
 				personToAdd = Nominee(personData.first_name + ' ' + personData.last_name, personData.rank, personData.major, (personData.first_name + personData.last_name).lower())
-				print(personToAdd.pictureLocation)
-				#print(personToAdd)
 				personList.append(personToAdd)
 
 		# add the people in this particular question to the group of all the people

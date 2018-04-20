@@ -23,9 +23,11 @@
 	color:#253849;
 	font-size:18px;
 	margin-top:10px;
+	display: block;
 }
 
 .pollTitle {
 	color:#253849;
 	font-size:28px;
+	margin-top: 20px;
 }
