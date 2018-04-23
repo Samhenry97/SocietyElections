@@ -13,24 +13,27 @@
 
 		<h2 class="pollTitle">{{ question.question_text }}</h2>
 		<div class="questionDiv">
-
+			<form>
 				<!--info on indexing into list: https://stackoverflow.com/questions/41824854/how-to-parse-list-of-lists-in-django-template -->
 				{% for person in peopleDict|at_index:question.id %}
-				<!-- Add in another for loop that iterates over each candidate and inserts this html-->
-				<div class="nomineeDiv">
-					<!--Each of these should be getting their photos from the static folder-->
-					<div>
-						<img src="{% static person.pictureLocation|getPictureLocation %}" alt="" height="200" width="150">
-						<!--Get the text for the image (TODO: this should be changed to some other name)-->
-						<!-- Should also be some sort of radio box-->
-						<input type="radio" id="{{person.name}}" />
-						<label for="{{person.name}}">{{person.name}}</label>
-						<!--<div class="nomineeText"><button type="radio" class="buttons button">{{person.name}}</button></div>--> 
-					
 
-					</div>
+				<div class="nomineeDiv">
+					
+						<!--https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons-->
+						<label>
+							<!--Get the text for the image (TODO: this should be changed to some other name)-->
+							<!--https://stackoverflow.com/questions/20982993/html-radio-buttons-allowing-multiple-selections-->
+							<input type="radio" name="{{question.id}}" value="{{person.name}}">
+							<img src="{% static person.pictureLocation|getPictureLocation %}" alt="" height="200" width="150"/>
+
+						</label>
+						<p>{{person.name}}</p>
+					
 				</div>
+
 				{% endfor %}
+			</form>
+			
 		</div>
 	{% endfor %}
 	

@@ -1,18 +1,19 @@
 .questionDiv {
-	margin: 50px;
 	display: inline-block;
 	width: 100%;
+	margin: 0 auto;
 }
 
 .nomineeDiv {
+	display: inline-block;
 	padding: 20px;
 	text-align: center;
 	margin: 0 auto;
-	height:400px; 
+	height:300px; 
 	width:200px;
 }
 
-#id {
+#warning {
 	color: red;
 	text-align: center;
 	width: 100%;
@@ -31,3 +32,18 @@
 	font-size:28px;
 	margin-top: 20px;
 }
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:none;
+}
+
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:4px solid #2B65EC;
+}
+
