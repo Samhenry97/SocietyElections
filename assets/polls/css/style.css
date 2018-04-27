@@ -1,21 +1,23 @@
-body {
+body, h2 {
 	background-color: #F4F4F4;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
 }
 
 header {
 	max-height: 500px;
-	background-color: #253849;
-}
-
-#titleText {
-	color: #F4F4F4;
-	text-align: center;
-	padding-top: 50px;
+	background: #F4F4F4;
 }
 
 .centerit {
 	text-align: center;
 	margin: 0 auto;
+}
+
+#cavsLogo {
+	margin: 20px;
+	border-radius: 50%;
+	border: 5px solid #00AEEF;
 }
 
 .buttons {
@@ -26,6 +28,11 @@ header {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
+}
+
+.menuItem {
+	text-align: center;
+	line-height: 350px;
 }
 
 #content {

@@ -1,18 +1,20 @@
+
 .questionDiv {
-	margin: 50px;
 	display: inline-block;
 	width: 100%;
+	margin: 0 auto;
 }
 
 .nomineeDiv {
+	display: inline-block;
 	padding: 20px;
 	text-align: center;
 	margin: 0 auto;
-	height:400px; 
+	height:300px; 
 	width:200px;
 }
 
-#id {
+#warning {
 	color: red;
 	text-align: center;
 	width: 100%;
@@ -23,9 +25,26 @@
 	color:#253849;
 	font-size:18px;
 	margin-top:10px;
+	display: block;
 }
 
 .pollTitle {
 	color:#253849;
 	font-size:28px;
+	margin-top: 20px;
 }
+
+label > input{ 
+  visibility: hidden; 
+  position: absolute; 
+}
+
+label > input + img{ 
+  cursor:pointer;
+  border:none;
+}
+
+label > input:checked + img{ 
+  border:4px solid #00AEEF;
+}
+

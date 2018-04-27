@@ -4,10 +4,18 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/foundation.css' %}">
 		
+
+		<!--Foundation-->
 		<!-- if you want to make changes to the styling in foundation, do it in app.css -->
 		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/app.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
 		<link rel="icon" href="{% static 'polls/img/favicon.ico' %}" type="image/x-icon" />
+
+		<!-- Alertify -->
+		<script type="text/javascript" src="{% static 'polls/js/alertifyJS/alertify.min.js' %}" ></script>
+		<link rel="stylesheet" href="{% static 'polls/css/alertifyCSS/alertify.min.css' %}" />
+		<!-- include a theme -->
+		<link rel="stylesheet" href="{% static 'polls/css/alertifyCSS/themes/default.min.css' %}" />
 		{% block stylesheets %}
 		{% endblock %}
 		<title> Chi Alpha Pi Polls </title>
@@ -15,11 +23,13 @@
 	<body>
 		<header>
 			<div class="grid-x">
-				<div class="cell small-12 large-2"><img src="{% static 'polls/img/cavslogo.jpg' %}" alt="" height="300px" width="300px" /></div>
-				<div class="cell small-12 large-10" id="titleText"><h1> Sign up to Vote!</h1></div>
+				<div class="cell small-12 medium-4 menuItem"><span><button type="button" class="button buttons">Home</button></span></div>
+				<div id="centerLogo" class="cell small-12 medium-4 centerit" ><img id="cavsLogo" src="{% static 'polls/img/newcavslogo.png' %}" alt="" height="300px" width="300px"/></div>
+				<div class="cell small-12 medium-4 menuItem"><span><button type="button" class="button buttons">Sign Up</button><span></div>
 			</div>
 		</header>
 		<div id="content">
+			<hr>
 			{% block content %}
 			{% endblock %}
 		</div>

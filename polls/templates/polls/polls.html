@@ -4,6 +4,8 @@
 {% load templateTags %}
 
 		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/polls.css' %}">
+		<script type="text/javascript" src="{% static 'polls/js/polls.js' %}" ></script>
+
 {% endblock %}
 {% block content %}
 {% if latest_question_list %}
@@ -16,31 +18,32 @@
 			<form>
 				<!--info on indexing into list: https://stackoverflow.com/questions/41824854/how-to-parse-list-of-lists-in-django-template -->
 				{% for person in peopleDict|at_index:question.id %}
-
 				<div class="nomineeDiv">
 					
 						<!--https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons-->
 						<label>
 							<!--Get the text for the image (TODO: this should be changed to some other name)-->
 							<!--https://stackoverflow.com/questions/20982993/html-radio-buttons-allowing-multiple-selections-->
+							<!-- Should we have an actual id and a display id?-->
 							<input type="radio" name="{{question.id}}" value="{{person.name}}">
 							<img src="{% static person.pictureLocation|getPictureLocation %}" alt="" height="200" width="150"/>
 
 						</label>
 						<p>{{person.name}}</p>
-					
 				</div>
 
 				{% endfor %}
 			</form>
 			
 		</div>
+		<hr>
 	{% endfor %}
+	<div class="cell small-12" style="text-align:center; margin: 30px;">
+		<button onclick="handleSubmit()" type="button" class="button buttons">Submit</button>
+	</div>
 	
 {% else %}
 	<p id="warning">No polls are available.</p>
 {% endif %}
-
-
 {% endblock %}
 
