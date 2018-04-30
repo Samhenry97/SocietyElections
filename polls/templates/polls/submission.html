@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/foundation.css' %}">
+
+		<!--Foundation-->
+		<!-- if you want to make changes to the styling in foundation, do it in app.css -->
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundationCSS/app.css' %}">
+		<link rel="icon" href="{% static 'polls/img/favicon.ico' %}" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="{% static 'polls/css/submitted.css' %}">
+
+		<title>Thank you</title>
+	</head>
+	<body>
+		<div class="grid-x">
+			<div class="cell small-12"> <h1 class="centerit">Thank you for voting!</h1>
+
+			<!--TODO: this needs replaced with the home page-->
+			<div class="cell centerit small-12"> <a href="../ballot">Return to the home page</a></div>
+			<div class="cell centerit small-12" ><img style="border-radius: 50%;" src="{% static 'polls/img/newcavslogo.png' %}" alt="" height="300px" width="300px"/></div>
+		</div>
+	</body>
+</html>

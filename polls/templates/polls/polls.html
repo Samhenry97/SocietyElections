@@ -14,8 +14,10 @@
 	{% for question in latest_question_list %}
 
 		<h2 class="pollTitle">{{ question.question_text }}</h2>
+		<form name="pollForm" method="post" onsubmit="return handleSubmit()" action="submitted/">{% csrf_token %}
+
 		<div class="questionDiv">
-			<form>
+	
 				<!--info on indexing into list: https://stackoverflow.com/questions/41824854/how-to-parse-list-of-lists-in-django-template -->
 				{% for person in peopleDict|at_index:question.id %}
 				<div class="nomineeDiv">
@@ -33,15 +35,14 @@
 				</div>
 
 				{% endfor %}
-			</form>
 			
 		</div>
 		<hr>
 	{% endfor %}
 	<div class="cell small-12" style="text-align:center; margin: 30px;">
-		<button onclick="handleSubmit()" type="button" class="button buttons">Submit</button>
+		<button type="submit" class="button buttons">Submit</button>
 	</div>
-	
+	</form>
 {% else %}
 	<p id="warning">No polls are available.</p>
 {% endif %}

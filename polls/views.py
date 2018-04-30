@@ -8,6 +8,7 @@ from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from .models import *
 from .nomineeObject import *
+from .forms import PollForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -48,6 +49,17 @@ def polls(request):
 
 	context = {'latest_question_list': latest_question_list, 'peopleDict': peopleDict}
 	return render(request, 'polls/polls.html', context)
+
+
+def submitted(request):
+	if request.method == 'POST':
+		form = PollForm(request.POST)
+		if form.is_valid():
+			return HttpResponse("""Thank you""")
+
+	context = {}
+	return render(request, 'polls/submission.html', context)
+
 
 #This returns the details about a certain position, with the url to access this page in urls.py
 def detail(request, question_id):
